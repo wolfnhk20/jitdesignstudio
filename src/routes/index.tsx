@@ -44,7 +44,8 @@ function Home() {
         <motion.div style={{ y }} className="absolute inset-0">
           <img src={hero} alt="Cinematic Indian living room" className="h-full w-full object-cover" width={1920} height={1280} />
         </motion.div>
-        <motion.div style={{ opacity: blurOpacity }} className="absolute inset-0 bg-gradient-to-b from-[color:var(--midnight)]/55 via-[color:var(--midnight)]/20 to-[color:var(--midnight)]/95" />
+        <motion.div style={{ opacity: blurOpacity }} className="absolute inset-0 bg-gradient-to-b from-[color:var(--midnight)]/85 via-[color:var(--midnight)]/55 to-[color:var(--midnight)]" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[color:var(--midnight)]/80 via-transparent to-transparent" />
         <div className="absolute inset-0 grain pointer-events-none" />
 
         <div className="relative z-10 mx-auto flex h-full max-w-[1400px] flex-col justify-end px-6 pb-20 md:px-10 md:pb-28">
@@ -56,13 +57,13 @@ function Home() {
           </motion.p>
           <motion.h1
             initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.5, duration: 1.1, ease: [0.22, 1, 0.36, 1] }}
-            className="mt-6 max-w-5xl font-display text-ivory text-[2.75rem] leading-[1.02] sm:text-6xl md:text-7xl lg:text-[5.5rem] text-balance"
+            className="mt-6 max-w-5xl font-display text-[color:var(--champagne)] text-[2.75rem] leading-[1.02] sm:text-6xl md:text-7xl lg:text-[5.5rem] text-balance drop-shadow-[0_2px_24px_rgba(8,12,30,0.6)]"
           >
             Homes that hold the <em className="text-[color:var(--gold)] not-italic">warmth</em> of who you are.
           </motion.h1>
           <motion.p
             initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1, duration: 1 }}
-            className="mt-8 max-w-xl text-ivory/75 text-base md:text-lg leading-relaxed font-light"
+            className="mt-8 max-w-xl text-[color:var(--ivory)]/90 text-base md:text-lg leading-relaxed font-light drop-shadow-[0_1px_12px_rgba(8,12,30,0.5)]"
           >
             We design contemporary Indian interiors with the slow, cinematic detail of a story —
             rooms you walk into the way you walk into a memory.
