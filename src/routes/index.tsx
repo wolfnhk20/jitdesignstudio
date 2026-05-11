@@ -3,12 +3,14 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import { ArrowUpRight } from "lucide-react";
 import { Reveal } from "@/components/site/Reveal";
-import hero from "@/assets/hero-living.jpg";
-import bedroom from "@/assets/project-bedroom.jpg";
-import dining from "@/assets/project-dining.jpg";
-import kitchen from "@/assets/project-kitchen.jpg";
-import nook from "@/assets/project-nook.jpg";
-import foyer from "@/assets/project-foyer.jpg";
+import { IMG } from "@/lib/images";
+
+const hero = IMG.hero;
+const bedroom = IMG.bedroom;
+const dining = IMG.dining;
+const kitchen = IMG.kitchen;
+const nook = IMG.nook;
+const foyer = IMG.foyer;
 
 export const Route = createFileRoute("/")({
   head: () => ({

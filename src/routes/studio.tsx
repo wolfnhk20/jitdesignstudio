@@ -1,8 +1,9 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Reveal } from "@/components/site/Reveal";
-import workspace from "@/assets/studio-workspace.jpg";
-import nook from "@/assets/project-nook.jpg";
-import dining from "@/assets/project-dining.jpg";
+import { IMG } from "@/lib/images";
+const workspace = IMG.workspace;
+const nook = IMG.nook;
+const dining = IMG.dining;
 
 export const Route = createFileRoute("/studio")({
   head: () => ({

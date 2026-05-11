@@ -1,10 +1,11 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Reveal } from "@/components/site/Reveal";
 import { ArrowUpRight } from "lucide-react";
-import dining from "@/assets/project-dining.jpg";
-import kitchen from "@/assets/project-kitchen.jpg";
-import bedroom from "@/assets/project-bedroom.jpg";
-import bath from "@/assets/project-bath.jpg";
+import { IMG } from "@/lib/images";
+const dining = IMG.dining;
+const kitchen = IMG.kitchen;
+const bedroom = IMG.bedroom;
+const bath = IMG.bath;
 
 export const Route = createFileRoute("/services")({
   head: () => ({
