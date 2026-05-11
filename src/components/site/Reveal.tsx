@@ -1,9 +1,17 @@
 import { motion, type Variants } from "framer-motion";
 import type { ReactNode } from "react";
 
+// Cinematic easing — long, slow, decisive. Inspired by film title sequences.
+const EASE = [0.16, 0.84, 0.24, 1] as const;
+
 const variants: Variants = {
-  hidden: { opacity: 0, y: 30 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.9, ease: [0.22, 1, 0.36, 1] } },
+  hidden: { opacity: 0, y: 42, filter: "blur(6px)" },
+  show: {
+    opacity: 1,
+    y: 0,
+    filter: "blur(0px)",
+    transition: { duration: 1.25, ease: EASE },
+  },
 };
 
 export function Reveal({
@@ -22,9 +30,9 @@ export function Reveal({
     <Comp
       initial="hidden"
       whileInView="show"
-      viewport={{ once: true, margin: "-80px" }}
+      viewport={{ once: true, margin: "-90px" }}
       variants={variants}
-      transition={{ delay }}
+      transition={{ delay, duration: 1.25, ease: EASE }}
       className={className}
     >
       {children}
