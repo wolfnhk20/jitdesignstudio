@@ -2,7 +2,7 @@
 @source "../src";
 @import "tw-animate-css";
 
-@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;0,6..96,600;0,6..96,700;1,6..96,400;1,6..96,500&family=Montserrat:wght@300;400;500;600;700&display=swap");
 
 @custom-variant dark (&:is(.dark *));
 
@@ -38,22 +38,22 @@
   --color-champagne: var(--champagne);
   --color-charcoal: var(--charcoal);
   --color-ember: var(--ember);
-  --font-display: "Cormorant Garamond", serif;
-  --font-sans: "Inter", system-ui, sans-serif;
+  --font-display: "Bodoni Moda", "Cormorant Garamond", serif;
+  --font-sans: "Montserrat", system-ui, sans-serif;
 }
 
 :root {
   --radius: 0.25rem;
 
-  /* Brand palette */
-  --royal: oklch(0.255 0.075 268);          /* deep royal blue */
-  --midnight: oklch(0.18 0.06 270);         /* midnight indigo */
-  --gold: oklch(0.78 0.115 82);             /* muted antique gold */
-  --gold-deep: oklch(0.65 0.13 75);
-  --ivory: oklch(0.965 0.015 85);           /* warm ivory */
-  --champagne: oklch(0.9 0.04 82);
-  --charcoal: oklch(0.32 0.025 260);        /* charcoal blue-gray */
-  --ember: oklch(0.78 0.16 55);             /* amber accent */
+  /* Brand palette — Regal Contemporary Luxury */
+  --royal: oklch(0.32 0.045 260);            /* charcoal indigo */
+  --midnight: oklch(0.17 0.028 255);         /* #0c141e midnight */
+  --gold: oklch(0.815 0.117 85);             /* #e9c176 antique gold */
+  --gold-deep: oklch(0.66 0.13 75);
+  --ivory: oklch(0.965 0.012 85);            /* warm ivory */
+  --champagne: oklch(0.9 0.035 82);
+  --charcoal: oklch(0.34 0.02 258);
+  --ember: oklch(0.78 0.16 55);
 
   --background: var(--ivory);
   --foreground: var(--midnight);
@@ -110,7 +110,7 @@
   h1, h2, h3, h4, h5 {
     font-family: var(--font-display);
     font-weight: 400;
-    letter-spacing: -0.01em;
+    letter-spacing: 0.012em;
   }
   ::selection { background: var(--gold); color: var(--midnight); }
 }
