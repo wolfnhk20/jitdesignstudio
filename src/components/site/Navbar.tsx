@@ -40,9 +40,9 @@ export function Navbar() {
           <span className="relative h-10 w-10 overflow-hidden rounded-full ring-1 ring-[color:var(--gold)]/40">
             <img src={logo} alt="JIT Design Studio" className="h-full w-full object-cover" />
           </span>
-          <span className="hidden flex-col leading-none sm:flex">
-            <span className="font-display text-lg tracking-wide text-ivory">JIT Design Studio</span>
-            <span className="eyebrow !text-[0.55rem] !tracking-[0.4em] text-[color:var(--gold)]/80">
+          <span className="flex flex-col leading-none">
+            <span className="font-display text-base sm:text-lg tracking-wide text-ivory">JIT Design Studio</span>
+            <span className="eyebrow !text-[0.5rem] sm:!text-[0.55rem] !tracking-[0.35em] sm:!tracking-[0.4em] text-[color:var(--gold)]/80">
               Pune · Est. Interiors
             </span>
           </span>
