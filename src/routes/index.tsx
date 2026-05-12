@@ -139,11 +139,22 @@ function Home() {
             </Reveal>
           </div>
 
-          <div className="grid grid-cols-12 gap-5 md:gap-8">
-            <FeaturedCard className="col-span-12 md:col-span-7" data={FEATURED[0]} aspect="aspect-[4/5] md:aspect-[5/6]" />
-            <FeaturedCard className="col-span-12 md:col-span-5 md:mt-24" data={FEATURED[1]} aspect="aspect-[4/3]" />
-            <FeaturedCard className="col-span-12 md:col-span-5" data={FEATURED[2]} aspect="aspect-[4/3]" />
-            <FeaturedCard className="col-span-12 md:col-span-7 md:-mt-16" data={FEATURED[3]} aspect="aspect-[4/3]" />
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 md:gap-8">
+            {FEATURED.map((f, i) => (
+              <FeaturedCard key={f.title} className="" data={f} aspect="aspect-[4/5]" index={i} />
+            ))}
+          </div>
+
+          {/* Kinetic marquee */}
+          <div className="relative mt-24 md:mt-32 overflow-hidden border-y border-[color:var(--gold)]/20 py-6">
+            <div className="flex marquee-track w-max gap-14 whitespace-nowrap">
+              {[..."Bespoke · Crafted in Pune · Cinematic · Turnkey · Hand-drawn · Considered · Warm · Heirloom".split(" · "), ..."Bespoke · Crafted in Pune · Cinematic · Turnkey · Hand-drawn · Considered · Warm · Heirloom".split(" · "), ..."Bespoke · Crafted in Pune · Cinematic · Turnkey · Hand-drawn · Considered · Warm · Heirloom".split(" · ")].map((w, i) => (
+                <span key={i} className="font-display italic text-2xl md:text-4xl text-ivory/35 flex items-center gap-14">
+                  {w}
+                  <span className="text-[color:var(--gold)]">✦</span>
+                </span>
+              ))}
+            </div>
           </div>
         </div>
       </section>
@@ -198,10 +209,16 @@ function Home() {
 }
 
 function FeaturedCard({
-  data, aspect, className = "",
-}: { data: typeof FEATURED[number]; aspect: string; className?: string }) {
+  data, aspect, className = "", index = 0,
+}: { data: typeof FEATURED[number]; aspect: string; className?: string; index?: number }) {
   return (
-    <Reveal className={className}>
+    <motion.div
+      initial={{ opacity: 0, y: 60, filter: "blur(10px)" }}
+      whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+      viewport={{ once: true, margin: "-80px" }}
+      transition={{ duration: 1.1, delay: (index % 2) * 0.12, ease: [0.22, 1, 0.36, 1] }}
+      className={className}
+    >
       <Link to="/portfolio" className="group block">
         <div className={`relative ${aspect} overflow-hidden bg-[color:var(--royal)]`}>
           <motion.img
@@ -209,11 +226,12 @@ function FeaturedCard({
             alt={data.title}
             loading="lazy"
             className="h-full w-full object-cover"
-            initial={{ scale: 1.05 }}
-            whileHover={{ scale: 1.08 }}
-            transition={{ duration: 1.4, ease: [0.22, 1, 0.36, 1] }}
+            initial={{ scale: 1.08 }}
+            whileHover={{ scale: 1.12 }}
+            transition={{ duration: 1.6, ease: [0.22, 1, 0.36, 1] }}
           />
           <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[color:var(--midnight)]/85 via-transparent to-transparent opacity-90" />
+          <div className="pointer-events-none absolute inset-0 ring-0 group-hover:ring-1 ring-inset ring-[color:var(--gold)]/40 transition-all" />
           <div className="absolute left-5 right-5 bottom-5 md:left-7 md:bottom-7 flex items-end justify-between gap-4">
             <div>
               <p className="eyebrow text-[color:var(--gold)]/90">{data.tag} · {data.year}</p>
@@ -224,6 +242,6 @@ function FeaturedCard({
           </div>
         </div>
       </Link>
-    </Reveal>
+    </motion.div>
   );
 }

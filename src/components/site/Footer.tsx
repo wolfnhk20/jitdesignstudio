@@ -105,7 +105,7 @@ export function Footer() {
               {["studio", "services", "portfolio", "faq", "contact"].map((p) => (
                 <li key={p}>
                   <Link to={`/${p}`} className="link-underline text-ivory/70 hover:text-[color:var(--gold)] capitalize transition-colors">
-                    {p === "faq" ? "Journal & FAQ" : p}
+                    {p === "faq" ? "FAQ" : p}
                   </Link>
                 </li>
               ))}

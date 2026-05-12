@@ -7,9 +7,9 @@ import { Reveal } from "@/components/site/Reveal";
 export const Route = createFileRoute("/faq")({
   head: () => ({
     meta: [
-      { title: "Journal & FAQ — JIT Design Studio, Pune" },
+      { title: "FAQ — JIT Design Studio, Pune" },
       { name: "description", content: "Answers to the questions homeowners most often ask us — about timelines, budgets, and what working with JIT Design Studio feels like." },
-      { property: "og:title", content: "Journal & FAQ — JIT Design Studio" },
+      { property: "og:title", content: "FAQ — JIT Design Studio" },
       { property: "og:description", content: "Honest answers about working with our Pune interior design studio." },
     ],
   }),
@@ -57,7 +57,7 @@ function FaqPage() {
         <div className="absolute inset-0 grain pointer-events-none" />
         <div className="relative mx-auto max-w-[1300px] px-6 md:px-10 grid lg:grid-cols-12 gap-12">
           <Reveal className="lg:col-span-8">
-            <p className="eyebrow text-[color:var(--gold)]">Journal & FAQ</p>
+            <p className="eyebrow text-[color:var(--gold)]">Frequently Asked</p>
             <h1 className="mt-6 font-display text-5xl md:text-7xl leading-[1.02] text-balance">
               Honest answers — the way we'd give them
               <em className="not-italic text-[color:var(--gold)]"> over chai.</em>
