@@ -59,7 +59,7 @@ function Home() {
             initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.5, duration: 1.1, ease: [0.22, 1, 0.36, 1] }}
             className="mt-6 max-w-5xl font-display text-[color:var(--champagne)] text-[2.75rem] leading-[1.02] sm:text-6xl md:text-7xl lg:text-[5.5rem] text-balance drop-shadow-[0_2px_24px_rgba(8,12,30,0.6)]"
           >
-            Homes that hold the <em className="text-[color:var(--gold)] not-italic">warmth</em> of who you are.
+            Homes that hold the <em className="not-italic shimmer-text">warmth</em> of who you are.
           </motion.h1>
           <motion.p
             initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1, duration: 1 }}
@@ -83,9 +83,14 @@ function Home() {
 
         <motion.div
           initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.6, duration: 1 }}
-          className="absolute bottom-6 left-1/2 -translate-x-1/2 text-[color:var(--gold)]/70 text-[0.6rem] tracking-[0.5em] uppercase"
+          className="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-[color:var(--gold)]/70 text-[0.6rem] tracking-[0.5em] uppercase"
         >
           Scroll
+          <motion.span
+            animate={{ y: [0, 8, 0], opacity: [0.4, 1, 0.4] }}
+            transition={{ duration: 2.2, repeat: Infinity, ease: "easeInOut" }}
+            className="h-8 w-px bg-[color:var(--gold)]/60"
+          />
         </motion.div>
       </section>
 
@@ -124,7 +129,7 @@ function Home() {
             <Reveal>
               <p className="eyebrow text-[color:var(--gold)]">Selected Work</p>
               <h2 className="mt-5 font-display text-5xl md:text-6xl text-balance">
-                A few homes <em className="text-[color:var(--gold)] not-italic">we've fallen in love with.</em>
+                A few homes <em className="not-italic shimmer-text">we've fallen in love with.</em>
               </h2>
             </Reveal>
             <Reveal delay={0.15}>

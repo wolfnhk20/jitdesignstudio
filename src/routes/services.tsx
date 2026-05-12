@@ -1,8 +1,8 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Reveal } from "@/components/site/Reveal";
 import { ArrowUpRight, Compass, Hammer, Sparkles, Home as HomeIcon } from "lucide-react";
-import { motion } from "framer-motion";
-import { useState } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { useRef, useState } from "react";
 import { IMG } from "@/lib/images";
 
 export const Route = createFileRoute("/services")({
@@ -67,80 +67,120 @@ const PROCESS = [
   ["Drawing", "Joinery, electrical, lighting choreography — every line."],
   ["Make", "Trusted craftsmen, daily site presence, weekly walkthroughs."],
   ["Move-in", "We style the first evening. You live the rest."],
+] as const;
+
+const MARQUEE = [
+  "Bespoke",
+  "Crafted in Pune",
+  "Cinematic",
+  "Turnkey",
+  "Hand-drawn",
+  "Considered",
+  "Warm",
+  "Heirloom",
 ];
 
 function Services() {
+  const heroRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({ target: heroRef, offset: ["start start", "end start"] });
+  const heroY = useTransform(scrollYProgress, [0, 1], ["0%", "30%"]);
+  const heroOpacity = useTransform(scrollYProgress, [0, 1], [1, 0.3]);
+
   return (
     <>
-      {/* HERO — split editorial */}
-      <section className="relative pt-36 pb-20 md:pt-48 md:pb-28 bg-[color:var(--midnight)] text-ivory overflow-hidden">
-        <div className="absolute inset-0 ambient-glow opacity-60" />
+      {/* HERO — cinematic with parallax cover image */}
+      <section
+        ref={heroRef}
+        className="relative min-h-[92svh] flex items-end pt-36 pb-20 md:pt-44 md:pb-28 bg-[color:var(--midnight)] text-ivory overflow-hidden"
+      >
+        <motion.div style={{ y: heroY, opacity: heroOpacity }} className="absolute inset-0">
+          <img src={IMG.detail2} alt="" className="h-full w-full object-cover opacity-35" />
+        </motion.div>
+        <div className="absolute inset-0 bg-gradient-to-b from-[color:var(--midnight)]/70 via-[color:var(--midnight)]/80 to-[color:var(--midnight)]" />
+        <div className="absolute inset-0 ambient-glow opacity-70" />
         <div className="absolute inset-0 grain pointer-events-none" />
-        <div className="relative mx-auto max-w-[1400px] px-6 md:px-10 grid lg:grid-cols-12 gap-10 lg:gap-16 items-end">
-          <Reveal className="lg:col-span-7">
+
+        <div className="relative mx-auto max-w-[1400px] w-full px-6 md:px-10 grid lg:grid-cols-12 gap-10 lg:gap-16 items-end">
+          <Reveal className="lg:col-span-8">
             <p className="eyebrow text-[color:var(--gold)]">Services · Vol. I</p>
-            <h1 className="mt-6 font-display text-5xl sm:text-6xl md:text-7xl lg:text-[5.25rem] leading-[1.02] text-balance text-[color:var(--champagne)]">
-              An intimate practice.<br />
-              A handful of services.<br />
-              <em className="not-italic text-[color:var(--gold)]">Each obsessively considered.</em>
+            <h1 className="mt-7 font-display text-[2.75rem] sm:text-6xl md:text-7xl lg:text-[6rem] leading-[0.98] text-balance">
+              <span className="block text-[color:var(--champagne)]">An intimate</span>
+              <span className="block text-[color:var(--champagne)]">practice. A handful</span>
+              <span className="block">of services —</span>
+              <span className="block shimmer-text italic">obsessively considered.</span>
             </h1>
           </Reveal>
-          <Reveal delay={0.15} className="lg:col-span-5">
+          <Reveal delay={0.2} className="lg:col-span-4">
             <div className="gold-rule w-16 mb-6" />
-            <p className="text-ivory/80 text-lg font-light leading-relaxed">
-              We don't sell packages. We design homes — slowly, end to end, by people who care about
+            <p className="text-ivory/80 text-base md:text-lg font-light leading-relaxed">
+              We don't sell packages. We design homes — slowly, end to end, by people who care
               what your morning kitchen looks like and how the evening light falls in your hallway.
             </p>
-            <div className="mt-8 flex items-center gap-6 text-xs uppercase tracking-[0.28em] text-ivory/60">
-              <span><span className="text-[color:var(--gold)]">06</span> Homes / Year</span>
+            <div className="mt-8 flex items-center gap-6 text-[0.62rem] uppercase tracking-[0.32em] text-ivory/60">
+              <span><span className="text-[color:var(--gold)] font-display text-base">06</span> Homes / Year</span>
               <span className="h-3 w-px bg-ivory/20" />
-              <span><span className="text-[color:var(--gold)]">12</span> Yrs Practice</span>
+              <span><span className="text-[color:var(--gold)] font-display text-base">12</span> Yrs</span>
             </div>
           </Reveal>
         </div>
-      </section>
 
-      {/* SERVICE INDEX — interactive list */}
-      <section className="relative bg-ivory py-20 md:py-32">
-        <div className="mx-auto max-w-[1400px] px-6 md:px-10">
-          <div className="flex items-end justify-between mb-12 md:mb-16">
-            <Reveal>
-              <p className="eyebrow">The Index</p>
-              <h2 className="mt-4 font-display text-3xl md:text-5xl text-[color:var(--midnight)]">
-                Four chapters, one home.
-              </h2>
-            </Reveal>
+        {/* Marquee ribbon */}
+        <div className="absolute bottom-0 left-0 right-0 overflow-hidden border-y border-[color:var(--gold)]/20 bg-[color:var(--midnight)]/60 backdrop-blur-sm py-4">
+          <div className="flex marquee-track w-max gap-12 whitespace-nowrap">
+            {[...MARQUEE, ...MARQUEE, ...MARQUEE].map((w, i) => (
+              <span key={i} className="font-display italic text-2xl md:text-3xl text-ivory/40 flex items-center gap-12">
+                {w}
+                <span className="text-[color:var(--gold)]">✦</span>
+              </span>
+            ))}
           </div>
-
-          <ServiceIndex />
         </div>
       </section>
 
-      {/* PROCESS — horizontal timeline */}
-      <section className="relative bg-[color:var(--midnight)] text-ivory py-24 md:py-36 overflow-hidden">
-        <div className="absolute inset-0 ambient-glow opacity-40" />
+      {/* SERVICE CHAPTERS — large editorial */}
+      <section className="relative bg-ivory">
+        {SERVICES.map((s, i) => (
+          <ServiceChapter key={s.no} s={s} flipped={i % 2 === 1} />
+        ))}
+      </section>
+
+      {/* PROCESS — vertical cinematic timeline */}
+      <section className="relative bg-[color:var(--midnight)] text-ivory py-28 md:py-40 overflow-hidden">
+        <div className="absolute inset-0 ambient-glow opacity-50" />
         <div className="absolute inset-0 grain pointer-events-none opacity-50" />
-        <div className="relative mx-auto max-w-[1400px] px-6 md:px-10">
+        <div className="relative mx-auto max-w-[1300px] px-6 md:px-10">
           <Reveal>
             <p className="eyebrow text-[color:var(--gold)]">How a Project Unfolds</p>
-            <h2 className="mt-5 font-display text-4xl md:text-6xl max-w-3xl text-balance text-[color:var(--champagne)]">
-              A calm, six-act process. <em className="not-italic text-[color:var(--gold)]">No surprises.</em>
+            <h2 className="mt-5 font-display text-4xl md:text-6xl lg:text-7xl max-w-3xl text-balance text-[color:var(--champagne)]">
+              A calm, six-act process. <em className="not-italic shimmer-text">No surprises.</em>
             </h2>
           </Reveal>
 
-          <div className="relative mt-20">
-            <div className="absolute left-0 right-0 top-[34px] hidden md:block h-px bg-gradient-to-r from-transparent via-[color:var(--gold)]/40 to-transparent" />
-            <div className="grid gap-12 md:grid-cols-3 lg:grid-cols-6">
+          <div className="relative mt-20 md:mt-28">
+            {/* spine */}
+            <motion.div
+              initial={{ scaleY: 0 }}
+              whileInView={{ scaleY: 1 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 2, ease: [0.16, 0.84, 0.24, 1] }}
+              style={{ originY: 0 }}
+              className="absolute left-[34px] md:left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-[color:var(--gold)]/55 to-transparent"
+            />
+            <div className="space-y-14 md:space-y-24">
               {PROCESS.map(([t, d], i) => (
-                <Reveal key={t} delay={i * 0.07}>
-                  <div className="relative">
-                    <div className="flex items-center gap-4 md:block">
-                      <span className="relative z-10 grid place-items-center h-[68px] w-[68px] rounded-full bg-[color:var(--midnight)] border border-[color:var(--gold)]/50 font-display text-[color:var(--gold)] text-xl">
-                        {String(i + 1).padStart(2, "0")}
-                      </span>
-                      <h3 className="font-display text-xl md:text-2xl md:mt-6 text-ivory">{t}</h3>
+                <Reveal key={t} delay={i * 0.05}>
+                  <div className={`relative grid md:grid-cols-2 gap-6 md:gap-16 items-center ${i % 2 === 1 ? "md:[&>*:first-child]:order-2" : ""}`}>
+                    <div className={`pl-20 md:pl-0 ${i % 2 === 1 ? "md:text-left md:pl-16" : "md:text-right md:pr-16"}`}>
+                      <p className="font-display text-[color:var(--gold)]/70 text-sm tracking-[0.3em]">ACT {String(i + 1).padStart(2, "0")}</p>
+                      <h3 className="mt-2 font-display text-3xl md:text-5xl text-ivory">{t}</h3>
+                      <p className="mt-4 text-ivory/65 font-light leading-relaxed max-w-md md:inline-block">{d}</p>
                     </div>
-                    <p className="mt-3 md:mt-3 text-ivory/65 text-sm font-light leading-relaxed">{d}</p>
+                    {/* node */}
+                    <span className="absolute left-0 md:left-1/2 top-2 md:top-1/2 -translate-y-1/2 md:-translate-x-1/2 grid place-items-center h-[68px] w-[68px] rounded-full bg-[color:var(--midnight)] border border-[color:var(--gold)]/55 font-display text-[color:var(--gold)] text-lg z-10">
+                      <span className="absolute inset-0 rounded-full pulse-ring border border-[color:var(--gold)]/40" />
+                      {String(i + 1).padStart(2, "0")}
+                    </span>
+                    <div className="hidden md:block" />
                   </div>
                 </Reveal>
               ))}
@@ -166,7 +206,11 @@ function Services() {
               { name: "Full Home", price: "Bespoke", note: "On invitation", lines: ["Turnkey execution", "Daily site presence", "Concierge sourcing"] },
             ].map((t) => (
               <Reveal key={t.name}>
-                <div className={`relative h-full p-8 md:p-10 border ${t.featured ? "bg-[color:var(--midnight)] text-ivory border-[color:var(--gold)]/50" : "bg-white border-[color:var(--midnight)]/10"}`}>
+                <motion.div
+                  whileHover={{ y: -8 }}
+                  transition={{ duration: 0.7, ease: [0.16, 0.84, 0.24, 1] }}
+                  className={`relative h-full p-8 md:p-10 border ${t.featured ? "bg-[color:var(--midnight)] text-ivory border-[color:var(--gold)]/50 gold-glow" : "bg-white border-[color:var(--midnight)]/10"}`}
+                >
                   {t.featured && <span className="absolute -top-3 left-8 bg-[color:var(--gold)] text-[color:var(--midnight)] text-[0.6rem] tracking-[0.3em] uppercase px-3 py-1">Most Chosen</span>}
                   <p className={`eyebrow ${t.featured ? "text-[color:var(--gold)]" : ""}`}>{t.name}</p>
                   <div className="mt-6 flex items-baseline gap-3">
@@ -182,7 +226,7 @@ function Services() {
                       </li>
                     ))}
                   </ul>
-                </div>
+                </motion.div>
               </Reveal>
             ))}
           </div>
@@ -192,13 +236,14 @@ function Services() {
       {/* CTA */}
       <section className="relative bg-[color:var(--royal)] text-ivory py-24 md:py-32 overflow-hidden">
         <div className="absolute inset-0 grain pointer-events-none opacity-50" />
+        <div className="absolute inset-0 ambient-glow opacity-40" />
         <div className="relative mx-auto max-w-[1100px] px-6 md:px-10 text-center">
           <Reveal>
             <p className="eyebrow text-[color:var(--gold)]">Begin</p>
             <h2 className="mt-5 font-display text-4xl md:text-6xl text-balance text-[color:var(--champagne)]">
-              The right home begins with the <em className="not-italic text-[color:var(--gold)]">right conversation</em>.
+              The right home begins with the <em className="not-italic shimmer-text">right conversation</em>.
             </h2>
-            <Link to="/contact" className="mt-12 inline-flex items-center gap-3 bg-[color:var(--gold)] px-8 py-4 text-xs uppercase tracking-[0.28em] text-[color:var(--midnight)] hover:bg-ivory transition-colors">
+            <Link to="/contact" className="mt-12 inline-flex items-center gap-3 bg-[color:var(--gold)] px-8 py-4 text-xs uppercase tracking-[0.28em] text-[color:var(--midnight)] hover:bg-ivory transition-colors hover-rise">
               Schedule a Consultation <ArrowUpRight size={16} />
             </Link>
           </Reveal>
@@ -208,80 +253,76 @@ function Services() {
   );
 }
 
-function ServiceIndex() {
-  const [active, setActive] = useState(0);
-  return (
-    <div className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-start">
-      {/* List */}
-      <div className="lg:col-span-7 divide-y divide-[color:var(--midnight)]/10">
-        {SERVICES.map((s, i) => {
-          const Icon = s.icon;
-          const isActive = i === active;
-          return (
-            <button
-              key={s.no}
-              onMouseEnter={() => setActive(i)}
-              onFocus={() => setActive(i)}
-              className="group w-full text-left py-7 md:py-9 grid grid-cols-12 items-center gap-4 transition-colors"
-            >
-              <span className={`col-span-2 md:col-span-1 font-display text-2xl md:text-3xl transition-colors ${isActive ? "text-[color:var(--gold-deep)]" : "text-[color:var(--midnight)]/40"}`}>
-                {s.no}
-              </span>
-              <div className="col-span-10 md:col-span-9">
-                <h3 className={`font-display text-2xl md:text-4xl transition-colors ${isActive ? "text-[color:var(--midnight)]" : "text-[color:var(--midnight)]/55 group-hover:text-[color:var(--midnight)]"}`}>
-                  {s.title}
-                </h3>
-                <p className="mt-1 text-sm md:text-base text-charcoal/65 font-light italic">{s.tagline}</p>
-                {/* Mobile-only image preview */}
-                <div className={`lg:hidden mt-4 overflow-hidden transition-all duration-700 ${isActive ? "max-h-[400px] opacity-100" : "max-h-0 opacity-0"}`}>
-                  <div className="aspect-[5/4] overflow-hidden">
-                    <img src={s.img} alt={s.title} loading="lazy" className="h-full w-full object-cover" />
-                  </div>
-                  <p className="mt-4 text-charcoal/85 font-light text-[0.95rem] leading-relaxed">{s.summary}</p>
-                  <ul className="mt-4 space-y-2">
-                    {s.bullets.map((b) => (
-                      <li key={b} className="flex items-start gap-3 text-sm text-charcoal/80">
-                        <span className="mt-2 inline-block h-px w-5 bg-[color:var(--gold)] shrink-0" />
-                        {b}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-              <div className={`hidden md:flex col-span-2 justify-end transition-all ${isActive ? "text-[color:var(--gold-deep)] translate-x-0" : "text-[color:var(--midnight)]/30 -translate-x-2"}`}>
-                <Icon size={22} />
-              </div>
-            </button>
-          );
-        })}
-      </div>
+function ServiceChapter({ s, flipped }: { s: typeof SERVICES[number]; flipped: boolean }) {
+  const [hover, setHover] = useState(false);
+  const Icon = s.icon;
 
-      {/* Sticky Preview (desktop) */}
-      <div className="hidden lg:block lg:col-span-5 sticky top-28">
-        <motion.div
-          key={active}
-          initial={{ opacity: 0, y: 16, filter: "blur(8px)" }}
-          animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-          transition={{ duration: 0.9, ease: [0.16, 0.84, 0.24, 1] }}
-        >
-          <div className="relative aspect-[4/5] overflow-hidden bg-[color:var(--royal)]">
-            <img src={SERVICES[active].img} alt={SERVICES[active].title} className="h-full w-full object-cover" />
-            <div className="absolute top-5 left-5 font-display text-[color:var(--gold)] text-5xl drop-shadow-lg">{SERVICES[active].no}</div>
-            <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-[color:var(--midnight)]/90 to-transparent p-6 pt-16">
-              <h4 className="font-display text-2xl text-ivory">{SERVICES[active].title}</h4>
-              <p className="mt-2 text-ivory/75 text-sm font-light leading-relaxed">{SERVICES[active].summary}</p>
-              <ul className="mt-4 grid grid-cols-2 gap-x-4 gap-y-2">
-                {SERVICES[active].bullets.map((b) => (
-                  <li key={b} className="flex items-start gap-2 text-[0.78rem] text-ivory/70">
-                    <span className="mt-[0.55rem] inline-block h-px w-3 bg-[color:var(--gold)] shrink-0" />
-                    {b}
-                  </li>
-                ))}
-              </ul>
+  return (
+    <article
+      onMouseEnter={() => setHover(true)}
+      onMouseLeave={() => setHover(false)}
+      className="relative border-b border-[color:var(--midnight)]/10 py-20 md:py-32 overflow-hidden"
+    >
+      {/* Massive ghost number */}
+      <motion.span
+        aria-hidden
+        animate={{ y: hover ? -10 : 0, opacity: hover ? 0.12 : 0.05 }}
+        transition={{ duration: 1.2, ease: [0.16, 0.84, 0.24, 1] }}
+        className={`pointer-events-none absolute font-display text-[18rem] md:text-[28rem] leading-none text-[color:var(--midnight)] -top-10 ${flipped ? "right-[-2rem]" : "left-[-2rem]"} select-none`}
+      >
+        {s.no}
+      </motion.span>
+
+      <div className="relative mx-auto max-w-[1300px] px-6 md:px-10 grid lg:grid-cols-12 gap-10 lg:gap-16 items-center">
+        {/* Image */}
+        <Reveal className={`lg:col-span-7 ${flipped ? "lg:order-2" : ""}`}>
+          <Link to="/portfolio" className="group block relative overflow-hidden aspect-[5/4] bg-[color:var(--royal)]">
+            <motion.img
+              src={s.img}
+              alt={s.title}
+              loading="lazy"
+              animate={{ scale: hover ? 1.06 : 1 }}
+              transition={{ duration: 1.6, ease: [0.16, 0.84, 0.24, 1] }}
+              className="absolute inset-0 h-full w-full object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-[color:var(--midnight)]/60 via-transparent to-transparent" />
+            <div className="absolute top-5 left-5 text-[0.6rem] uppercase tracking-[0.32em] text-[color:var(--gold)] flex items-center gap-3">
+              <span className="h-px w-10 bg-[color:var(--gold)]" />
+              Chapter {s.no}
             </div>
+            <div className="absolute bottom-5 right-5 grid place-items-center h-12 w-12 rounded-full bg-[color:var(--gold)] text-[color:var(--midnight)]">
+              <ArrowUpRight size={18} className="transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+            </div>
+          </Link>
+        </Reveal>
+
+        {/* Copy */}
+        <Reveal delay={0.15} className={`lg:col-span-5 ${flipped ? "lg:order-1" : ""}`}>
+          <div className="flex items-center gap-3 text-[color:var(--gold-deep)]">
+            <Icon size={18} />
+            <span className="eyebrow !text-[color:var(--gold-deep)]">{s.tagline}</span>
           </div>
-        </motion.div>
+          <h2 className="mt-5 font-display text-4xl md:text-5xl lg:text-6xl text-[color:var(--midnight)] text-balance leading-[1.05]">
+            {s.title}
+          </h2>
+          <div className="gold-rule mt-6 w-16" />
+          <p className="mt-6 text-charcoal/85 text-base md:text-lg font-light leading-relaxed">{s.summary}</p>
+          <ul className="mt-8 grid grid-cols-2 gap-x-6 gap-y-3">
+            {s.bullets.map((b) => (
+              <li key={b} className="flex items-start gap-3 text-sm text-charcoal/85 font-light">
+                <span className="mt-[0.55rem] inline-block h-px w-4 bg-[color:var(--gold)] shrink-0" />
+                {b}
+              </li>
+            ))}
+          </ul>
+          <Link
+            to="/contact"
+            className="mt-10 inline-flex items-center gap-3 text-xs uppercase tracking-[0.28em] text-[color:var(--royal)] hover:text-[color:var(--gold-deep)] link-underline"
+          >
+            Enquire about this service <ArrowUpRight size={14} />
+          </Link>
+        </Reveal>
       </div>
-    </div>
+    </article>
   );
 }
