@@ -210,24 +210,35 @@ function Home() {
             </figure>
           </Reveal>
 
-          <div className="mt-8 grid gap-6 md:grid-cols-3">
-            {TESTIMONIALS.map((t, i) => (
-              <Reveal key={t.name} delay={0.1 + i * 0.08}>
-                <figure className="h-full bg-[color:var(--card)] ring-1 ring-[color:var(--gold)]/15 p-8 hover-rise">
-                  <div className="flex gap-1 text-[color:var(--gold-deep)] text-sm">
-                    {"★★★★★".split("").map((s, idx) => <span key={idx}>{s}</span>)}
-                  </div>
-                  <blockquote className="mt-5 font-display italic text-lg leading-snug text-[color:var(--royal)] text-pretty">
-                    "{t.quote}"
-                  </blockquote>
-                  <figcaption className="mt-6 pt-5 border-t border-[color:var(--gold)]/20">
-                    <p className="font-display text-base text-[color:var(--midnight)]">{t.name}</p>
-                    <p className="mt-1 text-xs uppercase tracking-[0.24em] text-charcoal/60">{t.place}</p>
-                  </figcaption>
-                </figure>
-              </Reveal>
-            ))}
-          </div>
+          <Reveal delay={0.1}>
+            <div className="mt-10 px-2 md:px-12">
+              <Carousel
+                opts={{ align: "start", loop: true }}
+                plugins={[Autoplay({ delay: 5500, stopOnInteraction: true })]}
+              >
+                <CarouselContent className="-ml-6">
+                  {TESTIMONIALS.map((t) => (
+                    <CarouselItem key={t.name} className="pl-6 md:basis-1/2 lg:basis-1/3">
+                      <figure className="h-full bg-[color:var(--card)] ring-1 ring-[color:var(--gold)]/15 p-8 hover-rise transition-all">
+                        <div className="flex gap-1 text-[color:var(--gold-deep)] text-sm">
+                          {"★★★★★".split("").map((s, idx) => <span key={idx}>{s}</span>)}
+                        </div>
+                        <blockquote className="mt-5 font-display italic text-lg leading-snug text-[color:var(--royal)] text-pretty">
+                          "{t.quote}"
+                        </blockquote>
+                        <figcaption className="mt-6 pt-5 border-t border-[color:var(--gold)]/20">
+                          <p className="font-display text-base text-[color:var(--midnight)]">{t.name}</p>
+                          <p className="mt-1 text-xs uppercase tracking-[0.24em] text-charcoal/60">{t.place}</p>
+                        </figcaption>
+                      </figure>
+                    </CarouselItem>
+                  ))}
+                </CarouselContent>
+                <CarouselPrevious className="border-[color:var(--gold)]/40 text-[color:var(--midnight)] hover:bg-[color:var(--gold)] hover:text-[color:var(--midnight)]" />
+                <CarouselNext className="border-[color:var(--gold)]/40 text-[color:var(--midnight)] hover:bg-[color:var(--gold)] hover:text-[color:var(--midnight)]" />
+              </Carousel>
+            </div>
+          </Reveal>
         </div>
       </section>
 
