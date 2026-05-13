@@ -37,8 +37,8 @@ export function Navbar() {
     >
       <div className="mx-auto flex max-w-[1400px] items-center justify-between px-6 py-4 md:px-10 md:py-5">
         <Link to="/" className="group flex items-center gap-3">
-          <span className="grid h-11 w-11 place-items-center rounded-full ring-1 ring-[color:var(--gold)]/40 bg-[color:var(--midnight)]/40 text-[color:var(--gold)] transition-transform duration-500 group-hover:rotate-[-4deg]">
-            <OwlMark size={28} />
+          <span className="grid h-12 w-12 place-items-center transition-transform duration-500 group-hover:rotate-[-6deg] group-hover:scale-105">
+            <OwlMark size={44} />
           </span>
           <span className="flex flex-col leading-none">
             <span className="font-display text-base sm:text-lg tracking-wide text-ivory">JIT Design Studio</span>
