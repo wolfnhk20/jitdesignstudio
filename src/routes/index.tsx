@@ -24,6 +24,12 @@ export const Route = createFileRoute("/")({
   component: Home,
 });
 
+const TESTIMONIALS = [
+  { quote: "Every corner feels intentional. Our mornings genuinely feel slower now — it's the home we didn't know we needed.", name: "Aditya & Rhea Kulkarni", place: "Baner · 3 BHK" },
+  { quote: "Honest pricing, drawings on time, and craftsmen who actually cared. That trio is rare in Pune.", name: "Sanjay Deshpande", place: "Kothrud · Apartment" },
+  { quote: "They translated vague Pinterest boards into a home that feels like ours, not a showroom. Six stars if I could.", name: "Priya Nair", place: "Wakad · Villa" },
+];
+
 const FEATURED = [
   { img: bedroom, title: "The Indigo Suite", place: "Baner · Pune", year: "2024", tag: "Residence" },
   { img: dining, title: "House of Long Suppers", place: "Kothrud · Pune", year: "2024", tag: "Apartment" },
@@ -159,20 +165,58 @@ function Home() {
         </div>
       </section>
 
-      {/* QUOTE */}
-      <section className="relative bg-ivory py-28 md:py-40">
-        <div className="mx-auto max-w-4xl px-6 text-center">
+      {/* TESTIMONIALS */}
+      <section className="relative bg-ivory py-28 md:py-36 overflow-hidden">
+        <div className="mx-auto max-w-[1300px] px-6 md:px-10">
+          <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between mb-16">
+            <Reveal>
+              <p className="eyebrow">Kind Words</p>
+              <h2 className="mt-5 font-display text-4xl md:text-5xl lg:text-6xl text-[color:var(--midnight)] text-balance max-w-2xl">
+                What our families <em className="not-italic text-[color:var(--gold-deep)]">say</em> after moving in.
+              </h2>
+            </Reveal>
+            <Reveal delay={0.12}>
+              <div className="flex items-center gap-3 text-xs uppercase tracking-[0.28em] text-charcoal/70">
+                <span className="font-display text-3xl text-[color:var(--gold-deep)]">4.9</span>
+                <span className="h-px w-8 bg-[color:var(--gold)]" />
+                Across 40+ Pune homes
+              </div>
+            </Reveal>
+          </div>
+
           <Reveal>
-            <span className="font-display text-[6rem] leading-none text-[color:var(--gold)]">"</span>
-            <p className="-mt-8 font-display italic text-3xl md:text-5xl leading-[1.2] text-[color:var(--royal)] text-balance">
-              They didn't design a house. They listened to my family for six months — then gave us back our evenings.
-            </p>
-            <div className="mt-10 flex items-center justify-center gap-3 text-xs uppercase tracking-[0.3em] text-charcoal/70">
-              <span className="h-px w-10 bg-[color:var(--gold)]" />
-              Meera Joshi · Homeowner, Aundh
-              <span className="h-px w-10 bg-[color:var(--gold)]" />
-            </div>
+            <figure className="relative bg-[color:var(--midnight)] text-ivory p-10 md:p-16 overflow-hidden">
+              <div className="absolute inset-0 ambient-glow opacity-60" />
+              <div className="absolute inset-0 grain pointer-events-none" />
+              <span className="relative font-display text-[7rem] leading-none text-[color:var(--gold)]/80">"</span>
+              <blockquote className="relative -mt-10 font-display italic text-2xl md:text-4xl leading-[1.25] text-[color:var(--champagne)] text-balance max-w-3xl">
+                They didn't design a house. They listened to my family for six months — then gave us back our evenings.
+              </blockquote>
+              <figcaption className="relative mt-8 flex items-center gap-3 text-xs uppercase tracking-[0.3em] text-[color:var(--gold)]">
+                <span className="h-px w-10 bg-[color:var(--gold)]/60" />
+                Meera Joshi · Aundh
+              </figcaption>
+            </figure>
           </Reveal>
+
+          <div className="mt-8 grid gap-6 md:grid-cols-3">
+            {TESTIMONIALS.map((t, i) => (
+              <Reveal key={t.name} delay={0.1 + i * 0.08}>
+                <figure className="h-full bg-[color:var(--card)] ring-1 ring-[color:var(--gold)]/15 p-8 hover-rise">
+                  <div className="flex gap-1 text-[color:var(--gold-deep)] text-sm">
+                    {"★★★★★".split("").map((s, idx) => <span key={idx}>{s}</span>)}
+                  </div>
+                  <blockquote className="mt-5 font-display italic text-lg leading-snug text-[color:var(--royal)] text-pretty">
+                    "{t.quote}"
+                  </blockquote>
+                  <figcaption className="mt-6 pt-5 border-t border-[color:var(--gold)]/20">
+                    <p className="font-display text-base text-[color:var(--midnight)]">{t.name}</p>
+                    <p className="mt-1 text-xs uppercase tracking-[0.24em] text-charcoal/60">{t.place}</p>
+                  </figcaption>
+                </figure>
+              </Reveal>
+            ))}
+          </div>
         </div>
       </section>
 
