@@ -4,6 +4,14 @@ import { useRef } from "react";
 import { ArrowUpRight } from "lucide-react";
 import { Reveal } from "@/components/site/Reveal";
 import { IMG } from "@/lib/images";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
+import Autoplay from "embla-carousel-autoplay";
 
 const hero = IMG.hero;
 const bedroom = IMG.bedroom;
@@ -28,6 +36,9 @@ const TESTIMONIALS = [
   { quote: "Every corner feels intentional. Our mornings genuinely feel slower now — it's the home we didn't know we needed.", name: "Aditya & Rhea Kulkarni", place: "Baner · 3 BHK" },
   { quote: "Honest pricing, drawings on time, and craftsmen who actually cared. That trio is rare in Pune.", name: "Sanjay Deshpande", place: "Kothrud · Apartment" },
   { quote: "They translated vague Pinterest boards into a home that feels like ours, not a showroom. Six stars if I could.", name: "Priya Nair", place: "Wakad · Villa" },
+  { quote: "The kitchen alone changed how our family eats together. JIT understood our rituals before our walls.", name: "Neha & Karan Mehta", place: "Aundh · 4 BHK" },
+  { quote: "Detailing on the brass, the stone, the joinery — every inch felt loved. We still find new things months later.", name: "Rohan Bhosale", place: "Koregaon Park" },
+  { quote: "Calm, organised and deeply respectful of our budget. The trust we built will last decades.", name: "Anjali Patil", place: "Hinjewadi · Apartment" },
 ];
 
 const FEATURED = [
