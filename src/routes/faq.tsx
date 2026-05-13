@@ -45,6 +45,58 @@ const FAQS = [
     q: "How do we begin?",
     a: "Write to us, call, or send a WhatsApp. We'll set up a slow, no-pressure first conversation — usually at the studio in Dhankawadi or at your home — to understand what you're imagining.",
   },
+  {
+    q: "Do you charge for the first consultation?",
+    a: "The first conversation is always on us. We'd rather meet, walk the space and listen first — fees only begin once we formally start the design phase together.",
+  },
+  {
+    q: "How is the design fee structured?",
+    a: "We charge a flat design fee based on the carpet area and scope, billed in three milestones — kickoff, schematic sign-off, and final drawings. Execution is billed separately and transparently against approved BOQs.",
+  },
+  {
+    q: "What happens after I sign the proposal?",
+    a: "You're handed over to a dedicated design lead. We begin with site measurement, mood direction and space planning, then move into 3D visualisation, material boards and finally working drawings — usually over 6 to 9 weeks.",
+  },
+  {
+    q: "How many design revisions are included?",
+    a: "We don't cap revisions by number — we cap them by stage. Once a stage (layout, 3D, materials) is signed off, we lock it and move forward. This keeps the project honest and the timeline realistic.",
+  },
+  {
+    q: "Do you only design, or do you also execute?",
+    a: "Both. We offer design-only engagements as well as turnkey execution with our trusted in-house team of carpenters, polishers, electricians and stone craftsmen. Most clients choose turnkey for the single point of accountability.",
+  },
+  {
+    q: "Can you work with my contractor or architect?",
+    a: "Yes. If you already have a contractor or architect you trust, we collaborate closely with them — sharing drawings, joining site reviews, and handling material specification end-to-end.",
+  },
+  {
+    q: "Will I get 3D renders before work begins?",
+    a: "Yes. Every key area — living, dining, kitchen, master, kids' room — is delivered as photoreal 3D renders before a single piece is cut. You see the home before it is built.",
+  },
+  {
+    q: "How do you handle budget overruns?",
+    a: "By being painfully transparent upfront. Every line item is quoted before procurement, and any change is approved in writing before it's executed. Surprises are the enemy of trust — we don't believe in them.",
+  },
+  {
+    q: "What materials and finishes do you typically work with?",
+    a: "Solid woods, hand-cast brass, natural stone, lime plaster, hand-glazed tiles, raw linen, and Indian craft textiles. We lean into materials that age beautifully — patina is part of the design, not a flaw.",
+  },
+  {
+    q: "Can you design just one room — like a kitchen or master bedroom?",
+    a: "Yes. We take on single-room projects when the brief is clear and the room deserves real care — kitchens, primary bedrooms, home offices and entry foyers are the most common.",
+  },
+  {
+    q: "Do you offer Vastu-aligned design?",
+    a: "We do, when it matters to your family. We work with respected Vastu consultants and integrate principles thoughtfully — without letting them override how you actually live.",
+  },
+  {
+    q: "What about lighting, art and styling?",
+    a: "All included. Lighting is designed layer-by-layer — ambient, task, accent. Art curation, styling and the final 'move-in day' staging are part of every turnkey home we deliver.",
+  },
+  {
+    q: "What kind of warranty or after-care do you provide?",
+    a: "Our joinery and execution carry a 3-year workmanship warranty. Beyond that, we stay reachable for life — most of our clients still call us years later for a small change or a new piece.",
+  },
 ];
 
 function FaqPage() {
