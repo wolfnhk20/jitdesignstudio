@@ -2,7 +2,7 @@ import { Link, useRouterState } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
-import logo from "@/assets/jit-logo.jpg";
+import { OwlMark } from "@/components/site/Logo";
 
 const NAV = [
   { to: "/", label: "Home" },
