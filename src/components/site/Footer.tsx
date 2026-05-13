@@ -12,8 +12,8 @@ export function Footer() {
       <div className="mx-auto max-w-[1300px] px-6 md:px-10 py-10 md:py-12">
         <div className="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
           <Link to="/" className="flex items-center gap-3">
-            <span className="grid h-11 w-11 place-items-center rounded-full ring-1 ring-[color:var(--gold)]/40 text-[color:var(--gold)]">
-              <OwlMark size={28} />
+            <span className="grid h-12 w-12 place-items-center">
+              <OwlMark size={44} />
             </span>
             <span className="leading-tight">
               <span className="block font-display text-lg tracking-wide">JIT Design Studio</span>
