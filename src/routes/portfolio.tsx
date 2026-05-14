@@ -28,7 +28,9 @@ const PROJECTS: Project[] = [
   { cover: IMG.foyer,   title: "A Quiet Welcome",        place: "Kothrud · Pune",        year: "2023", tag: "Foyer",       description: "An entry sequence designed to slow you down - stone underfoot, soft light overhead.",                images: GALLERY.foyer,   ratio: "aspect-[4/5]" },
   { cover: IMG.dining,  title: "House of Long Suppers",  place: "Kothrud · Pune",        year: "2024", tag: "Dining",      description: "A dining room built for four-hour dinners, with layered light and a single long oak table.",         images: GALLERY.suppers, ratio: "aspect-[4/5]" },
   { cover: IMG.nook,    title: "The Reading Alcove",     place: "Sahakar Nagar · Pune",  year: "2023", tag: "Library",     description: "A quiet alcove carved out of an unused bay window, lined in walnut and morning light.",              images: GALLERY.alcove,  ratio: "aspect-[4/5]" },
-  { cover: IMG.bath,    title: "Zellige & Stone",        place: "Bavdhan · Pune",        year: "2025", tag: "Bath",        description: "A monastic bath in zellige, kota stone and aged brass.",                                              images: GALLERY.zellige, ratio: "aspect-[4/5]" },
+  { cover: IMG.bath,      title: "Zellige & Stone",        place: "Bavdhan · Pune",        year: "2025", tag: "Bath",        description: "A monastic bath in zellige, kota stone and aged brass.",                                              images: GALLERY.zellige, ratio: "aspect-[4/5]" },
+  { cover: IMG.workspace, title: "The Quiet Atelier",      place: "Viman Nagar · Pune",    year: "2024", tag: "Workspace",   description: "A home studio for a writer, designed for long mornings of focus and slow afternoons of light.",     images: GALLERY.atelier, ratio: "aspect-[4/5]" },
+  { cover: IMG.living,    title: "Veranda Light",          place: "NIBM · Pune",           year: "2025", tag: "Living",      description: "A west-facing living room reworked around a wide veranda, layered in linen, rattan and old teak.",   images: GALLERY.veranda, ratio: "aspect-[4/5]" },
 ];
 
 function Portfolio() {
