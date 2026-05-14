@@ -9,9 +9,9 @@ import { ProjectLightbox, type LightboxProject } from "@/components/site/Project
 export const Route = createFileRoute("/portfolio")({
   head: () => ({
     meta: [
-      { title: "Portfolio — JIT Design Studio, Pune" },
-      { name: "description", content: "A selection of contemporary Indian interiors — apartments, residences, kitchens and bath sanctuaries crafted by JIT Design Studio." },
-      { property: "og:title", content: "Portfolio — JIT Design Studio" },
+      { title: "Portfolio - JIT Design Studio, Pune" },
+      { name: "description", content: "A selection of contemporary Indian interiors - apartments, residences, kitchens and bath sanctuaries crafted by JIT Design Studio." },
+      { property: "og:title", content: "Portfolio - JIT Design Studio" },
       { property: "og:description", content: "Selected interior projects from Pune." },
       { property: "og:image", content: IMG.hero },
     ],
@@ -25,10 +25,12 @@ const PROJECTS: Project[] = [
   { cover: IMG.hero,    title: "Arched at Golden Hour",  place: "Baner · Pune",          year: "2024", tag: "Residence",   description: "A four-bedroom home built around a single arched window and the way the late sun pours through it.",  images: GALLERY.arched,  ratio: "aspect-[4/5]" },
   { cover: IMG.bedroom, title: "The Indigo Suite",       place: "Wakad · Pune",          year: "2024", tag: "Bedroom",     description: "A moody master suite layered in indigo, brass and warm linen.",                                       images: GALLERY.indigo,  ratio: "aspect-[4/5]" },
   { cover: IMG.kitchen, title: "Brass & Midnight",       place: "Aundh · Pune",          year: "2025", tag: "Kitchen",     description: "A working chef's kitchen, kept calm by hand-finished brass and a deep midnight palette.",            images: GALLERY.brass,   ratio: "aspect-[4/5]" },
-  { cover: IMG.foyer,   title: "A Quiet Welcome",        place: "Kothrud · Pune",        year: "2023", tag: "Foyer",       description: "An entry sequence designed to slow you down — stone underfoot, soft light overhead.",                images: GALLERY.foyer,   ratio: "aspect-[4/5]" },
+  { cover: IMG.foyer,   title: "A Quiet Welcome",        place: "Kothrud · Pune",        year: "2023", tag: "Foyer",       description: "An entry sequence designed to slow you down - stone underfoot, soft light overhead.",                images: GALLERY.foyer,   ratio: "aspect-[4/5]" },
   { cover: IMG.dining,  title: "House of Long Suppers",  place: "Kothrud · Pune",        year: "2024", tag: "Dining",      description: "A dining room built for four-hour dinners, with layered light and a single long oak table.",         images: GALLERY.suppers, ratio: "aspect-[4/5]" },
   { cover: IMG.nook,    title: "The Reading Alcove",     place: "Sahakar Nagar · Pune",  year: "2023", tag: "Library",     description: "A quiet alcove carved out of an unused bay window, lined in walnut and morning light.",              images: GALLERY.alcove,  ratio: "aspect-[4/5]" },
-  { cover: IMG.bath,    title: "Zellige & Stone",        place: "Bavdhan · Pune",        year: "2025", tag: "Bath",        description: "A monastic bath in zellige, kota stone and aged brass.",                                              images: GALLERY.zellige, ratio: "aspect-[4/5]" },
+  { cover: IMG.bath,      title: "Zellige & Stone",        place: "Bavdhan · Pune",        year: "2025", tag: "Bath",        description: "A monastic bath in zellige, kota stone and aged brass.",                                              images: GALLERY.zellige, ratio: "aspect-[4/5]" },
+  { cover: IMG.workspace, title: "The Quiet Atelier",      place: "Viman Nagar · Pune",    year: "2024", tag: "Workspace",   description: "A home studio for a writer, designed for long mornings of focus and slow afternoons of light.",     images: GALLERY.atelier, ratio: "aspect-[4/5]" },
+  { cover: IMG.living,    title: "Veranda Light",          place: "NIBM · Pune",           year: "2025", tag: "Living",      description: "A west-facing living room reworked around a wide veranda, layered in linen, rattan and old teak.",   images: GALLERY.veranda, ratio: "aspect-[4/5]" },
 ];
 
 function Portfolio() {
@@ -44,7 +46,7 @@ function Portfolio() {
           <Reveal className="lg:col-span-8">
             <p className="eyebrow text-[color:var(--gold)]">The Portfolio</p>
             <h1 className="mt-6 font-display text-5xl md:text-7xl leading-[1.02] text-balance">
-              Quiet, cinematic Indian homes — <em className="not-italic shimmer-text">told one room at a time.</em>
+              Quiet, cinematic Indian homes - <em className="not-italic shimmer-text">told one room at a time.</em>
             </h1>
           </Reveal>
           <Reveal delay={0.15} className="lg:col-span-4 self-end">
@@ -113,7 +115,7 @@ function ProjectTile({ p, index, onOpen }: { p: Project; index: number; onOpen: 
         <Expand size={11} /> {p.images.length} photos
       </div>
 
-      {/* Hover overlay — "Open Gallery" */}
+      {/* Hover overlay - "Open Gallery" */}
       <div className="pointer-events-none absolute inset-0 grid place-items-center opacity-0 group-hover:opacity-100 transition-opacity duration-500">
         <span className="font-display italic text-[color:var(--champagne)] text-xl md:text-2xl tracking-wide drop-shadow-[0_2px_18px_rgba(8,12,30,0.7)]">
           Open the gallery →

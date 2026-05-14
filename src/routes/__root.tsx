@@ -75,10 +75,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "JIT Design Studio — Contemporary Indian Interiors, Pune" },
+      { title: "JIT Design Studio - Contemporary Indian Interiors, Pune" },
       { name: "description", content: "A Pune-based interior design studio crafting warm, cinematic and contemporary Indian homes. Designing for the way you live." },
       { name: "author", content: "JIT Design Studio" },
-      { property: "og:title", content: "JIT Design Studio — Contemporary Indian Interiors, Pune" },
+      { property: "og:title", content: "JIT Design Studio - Contemporary Indian Interiors, Pune" },
       { property: "og:description", content: "Cinematic, warm, contemporary Indian interiors crafted in Pune." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },

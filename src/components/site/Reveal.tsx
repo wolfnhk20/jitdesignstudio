@@ -1,7 +1,7 @@
 import { motion, type Variants } from "framer-motion";
 import type { ReactNode } from "react";
 
-// Cinematic easing — long, slow, decisive. Inspired by film title sequences.
+// Cinematic easing - long, slow, decisive. Inspired by film title sequences.
 const EASE = [0.16, 0.84, 0.24, 1] as const;
 
 const variants: Variants = {

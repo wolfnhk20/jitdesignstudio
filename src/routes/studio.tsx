@@ -8,9 +8,9 @@ const dining = IMG.dining;
 export const Route = createFileRoute("/studio")({
   head: () => ({
     meta: [
-      { title: "The Studio — JIT Design Studio, Pune" },
+      { title: "The Studio - JIT Design Studio, Pune" },
       { name: "description", content: "Inside JIT Design Studio: a small Pune practice designing warm, lived-in contemporary Indian homes with cinematic detail." },
-      { property: "og:title", content: "The Studio — JIT Design Studio, Pune" },
+      { property: "og:title", content: "The Studio - JIT Design Studio, Pune" },
       { property: "og:description", content: "An intimate Pune-based interior design studio." },
       { property: "og:image", content: workspace },
     ],
@@ -19,9 +19,9 @@ export const Route = createFileRoute("/studio")({
 });
 
 const VALUES = [
-  { n: "01", t: "Slow conversations", d: "Before we sketch a wall, we sit with you. Tea, stories, the way light falls through your old window — these become the brief." },
+  { n: "01", t: "Slow conversations", d: "Before we sketch a wall, we sit with you. Tea, stories, the way light falls through your old window - these become the brief." },
   { n: "02", t: "Materials with memory", d: "Brass that ages, wood with grain, hand-block textiles, terrazzo from Maharashtra. Materials that gather a patina over the years you live with them." },
-  { n: "03", t: "Designed for evenings", d: "We design rooms for the quiet hours — for after-dinner readings, weekend long lunches, the way your child curls up on the sofa. The everyday is the brief." },
+  { n: "03", t: "Designed for evenings", d: "We design rooms for the quiet hours - for after-dinner readings, weekend long lunches, the way your child curls up on the sofa. The everyday is the brief." },
   { n: "04", t: "One project at a time", d: "We take on a small number of homes each year. Every drawer pull, every hinge, every shadow line is considered by the same hands." },
 ];
 
@@ -38,14 +38,14 @@ function Studio() {
               <p className="eyebrow text-[color:var(--gold)]">The Studio</p>
               <h1 className="mt-6 font-display text-5xl md:text-7xl leading-[1.02] text-balance">
                 A small Pune studio designing homes the way one writes a
-                <em className="not-italic text-[color:var(--gold)]"> letter</em> — slowly, by hand, to someone we know.
+                <em className="not-italic text-[color:var(--gold)]"> letter</em> - slowly, by hand, to someone we know.
               </h1>
             </Reveal>
           </div>
           <Reveal delay={0.15} className="lg:col-span-4 lg:col-start-9 self-end">
             <p className="text-ivory/75 text-lg leading-relaxed font-light">
               We are a contemporary Indian interior design practice based in Dhankawadi, Pune.
-              Our work sits between the cinematic and the lived-in — interiors that look like
+              Our work sits between the cinematic and the lived-in - interiors that look like
               they have always belonged to you.
             </p>
           </Reveal>
@@ -73,19 +73,19 @@ function Studio() {
               Started in Pune, in a sunlit room that smelled of teakwood and turpentine.
             </p>
             <p>
-              JIT Design Studio began with a simple idea — that a home should not look like a magazine,
+              JIT Design Studio began with a simple idea - that a home should not look like a magazine,
               it should feel like a Sunday morning. From a quiet apartment in Dhankawadi, we work with
               families across Pune to design interiors that are confidently modern yet
               unmistakably Indian.
             </p>
             <p>
-              Our clients are people building their first or forever home — homeowners who want
+              Our clients are people building their first or forever home - homeowners who want
               warmth without nostalgia, luxury without coldness, and detail without ostentation.
               We design to make the everyday feel a little more cinematic.
             </p>
             <p>
               We work in a small, deliberate way: a single point of contact, a calm process, and
-              honesty at every stage — about timelines, budgets, and what a space can truly become.
+              honesty at every stage - about timelines, budgets, and what a space can truly become.
             </p>
           </Reveal>
         </div>
@@ -132,7 +132,7 @@ function Studio() {
               <p className="font-display italic text-2xl text-[color:var(--royal)] leading-snug">
                 "The most beautiful room in the world is one you forget you decorated."
               </p>
-              <p className="mt-4 text-xs uppercase tracking-[0.3em] text-charcoal/60">— Studio Notebook</p>
+              <p className="mt-4 text-xs uppercase tracking-[0.3em] text-charcoal/60">- Studio Notebook</p>
             </div>
           </Reveal>
         </div>

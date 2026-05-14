@@ -8,9 +8,9 @@ import { IMG } from "@/lib/images";
 export const Route = createFileRoute("/services")({
   head: () => ({
     meta: [
-      { title: "Services — JIT Design Studio, Pune" },
+      { title: "Services - JIT Design Studio, Pune" },
       { name: "description", content: "Full-home interiors, turnkey apartment design, kitchen and bath, and consultation services for homeowners across Pune." },
-      { property: "og:title", content: "Services — JIT Design Studio" },
+      { property: "og:title", content: "Services - JIT Design Studio" },
       { property: "og:description", content: "Considered interior design services for modern Indian homes." },
     ],
   }),
@@ -24,7 +24,7 @@ const SERVICES = [
     img: IMG.dining,
     tagline: "From bare shell to first evening tea.",
     summary:
-      "Turnkey design and execution for apartments and independent homes — layout reimagination to the last brass handle.",
+      "Turnkey design and execution for apartments and independent homes - layout reimagination to the last brass handle.",
     bullets: ["Concept & moodboards", "Custom millwork", "Lighting choreography", "Project management"],
     icon: HomeIcon,
   },
@@ -54,7 +54,7 @@ const SERVICES = [
     img: IMG.bath,
     tagline: "The everyday, made ritual.",
     summary:
-      "Atmospheric bathrooms — stone, brass, soft light — that turn the smallest moments into something worth pausing for.",
+      "Atmospheric bathrooms - stone, brass, soft light - that turn the smallest moments into something worth pausing for.",
     bullets: ["Material sourcing", "Fixture design", "Waterproofing oversight", "Custom vanities"],
     icon: Compass,
   },
@@ -64,7 +64,7 @@ const PROCESS = [
   ["Conversation", "We meet over chai. We listen more than we speak."],
   ["Brief & Site", "Site visits, light study, family rituals decoded."],
   ["Concept", "Mood, material palette, the soul of the home in one room."],
-  ["Drawing", "Joinery, electrical, lighting choreography — every line."],
+  ["Drawing", "Joinery, electrical, lighting choreography - every line."],
   ["Make", "Trusted craftsmen, daily site presence, weekly walkthroughs."],
   ["Move-in", "We style the first evening. You live the rest."],
 ] as const;
@@ -88,7 +88,7 @@ function Services() {
 
   return (
     <>
-      {/* HERO — cinematic with parallax cover image */}
+      {/* HERO - cinematic with parallax cover image */}
       <section
         ref={heroRef}
         className="relative min-h-[92svh] flex items-end pt-36 pb-20 md:pt-44 md:pb-28 bg-[color:var(--midnight)] text-ivory overflow-hidden"
@@ -106,14 +106,14 @@ function Services() {
             <h1 className="mt-7 font-display text-[2.75rem] sm:text-6xl md:text-7xl lg:text-[6rem] leading-[0.98] text-balance">
               <span className="block text-[color:var(--champagne)]">An intimate</span>
               <span className="block text-[color:var(--champagne)]">practice. A handful</span>
-              <span className="block">of services —</span>
+              <span className="block">of services -</span>
               <span className="block shimmer-text italic">obsessively considered.</span>
             </h1>
           </Reveal>
           <Reveal delay={0.2} className="lg:col-span-4">
             <div className="gold-rule w-16 mb-6" />
             <p className="text-ivory/80 text-base md:text-lg font-light leading-relaxed">
-              We don't sell packages. We design homes — slowly, end to end, by people who care
+              We don't sell packages. We design homes - slowly, end to end, by people who care
               what your morning kitchen looks like and how the evening light falls in your hallway.
             </p>
             <div className="mt-8 flex items-center gap-6 text-[0.62rem] uppercase tracking-[0.32em] text-ivory/60">
@@ -137,14 +137,14 @@ function Services() {
         </div>
       </section>
 
-      {/* SERVICE CHAPTERS — large editorial */}
+      {/* SERVICE CHAPTERS - large editorial */}
       <section className="relative bg-ivory">
         {SERVICES.map((s, i) => (
           <ServiceChapter key={s.no} s={s} flipped={i % 2 === 1} />
         ))}
       </section>
 
-      {/* PROCESS — vertical cinematic timeline */}
+      {/* PROCESS - vertical cinematic timeline */}
       <section className="relative bg-[color:var(--midnight)] text-ivory py-28 md:py-40 overflow-hidden">
         <div className="absolute inset-0 ambient-glow opacity-50" />
         <div className="absolute inset-0 grain pointer-events-none opacity-50" />

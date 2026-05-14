@@ -1,4 +1,4 @@
-// JIT Design Studio mark — uses the bespoke owl artwork supplied by the studio.
+// JIT Design Studio mark - uses the bespoke owl artwork supplied by the studio.
 import owlSrc from "@/assets/jit-owl.png";
 
 type Props = {

@@ -23,9 +23,9 @@ const foyer = IMG.foyer;
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "JIT Design Studio — Cinematic Indian Interiors in Pune" },
-      { name: "description", content: "We design warm, contemporary Indian homes in Pune — cinematic, lived-in and crafted around the way your family actually lives." },
-      { property: "og:title", content: "JIT Design Studio — Cinematic Indian Interiors in Pune" },
+      { title: "JIT Design Studio - Cinematic Indian Interiors in Pune" },
+      { name: "description", content: "We design warm, contemporary Indian homes in Pune - cinematic, lived-in and crafted around the way your family actually lives." },
+      { property: "og:title", content: "JIT Design Studio - Cinematic Indian Interiors in Pune" },
       { property: "og:description", content: "Warm, cinematic, contemporary Indian interiors crafted in Pune." },
     ],
   }),
@@ -33,11 +33,11 @@ export const Route = createFileRoute("/")({
 });
 
 const TESTIMONIALS = [
-  { quote: "Every corner feels intentional. Our mornings genuinely feel slower now — it's the home we didn't know we needed.", name: "Aditya & Rhea Kulkarni", place: "Baner · 3 BHK" },
+  { quote: "Every corner feels intentional. Our mornings genuinely feel slower now - it's the home we didn't know we needed.", name: "Aditya & Rhea Kulkarni", place: "Baner · 3 BHK" },
   { quote: "Honest pricing, drawings on time, and craftsmen who actually cared. That trio is rare in Pune.", name: "Sanjay Deshpande", place: "Kothrud · Apartment" },
   { quote: "They translated vague Pinterest boards into a home that feels like ours, not a showroom. Six stars if I could.", name: "Priya Nair", place: "Wakad · Villa" },
   { quote: "The kitchen alone changed how our family eats together. JIT understood our rituals before our walls.", name: "Neha & Karan Mehta", place: "Aundh · 4 BHK" },
-  { quote: "Detailing on the brass, the stone, the joinery — every inch felt loved. We still find new things months later.", name: "Rohan Bhosale", place: "Koregaon Park" },
+  { quote: "Detailing on the brass, the stone, the joinery - every inch felt loved. We still find new things months later.", name: "Rohan Bhosale", place: "Koregaon Park" },
   { quote: "Calm, organised and deeply respectful of our budget. The trust we built will last decades.", name: "Anjali Patil", place: "Hinjewadi · Apartment" },
 ];
 
@@ -82,7 +82,7 @@ function Home() {
             initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1, duration: 1 }}
             className="mt-8 max-w-xl text-[color:var(--ivory)]/90 text-base md:text-lg leading-relaxed font-light drop-shadow-[0_1px_12px_rgba(8,12,30,0.5)]"
           >
-            We design contemporary Indian interiors with the slow, cinematic detail of a story —
+            We design contemporary Indian interiors with the slow, cinematic detail of a story -
             rooms you walk into the way you walk into a memory.
           </motion.p>
           <motion.div
@@ -126,7 +126,7 @@ function Home() {
             </h2>
             <p className="mt-8 text-charcoal/85 text-lg leading-relaxed font-light max-w-xl">
               Founded in Pune, JIT Design Studio is an intimate practice for families who want
-              their interiors to feel as personal as a handwritten letter — modern Indian living,
+              their interiors to feel as personal as a handwritten letter - modern Indian living,
               told with cinematic warmth and quiet, considered detail.
             </p>
             <Link to="/studio" className="mt-10 inline-flex items-center gap-2 text-sm uppercase tracking-[0.25em] text-[color:var(--royal)] hover:text-[color:var(--gold-deep)] transition-colors link-underline">
@@ -136,7 +136,7 @@ function Home() {
         </div>
       </section>
 
-      {/* FEATURED WORK — editorial asymmetric */}
+      {/* FEATURED WORK - editorial asymmetric */}
       <section className="relative bg-[color:var(--midnight)] py-28 md:py-36 text-ivory overflow-hidden">
         <div className="absolute inset-0 grain pointer-events-none opacity-60" />
         <div className="absolute inset-0 ambient-glow opacity-50" />
@@ -201,7 +201,7 @@ function Home() {
               <div className="absolute inset-0 grain pointer-events-none" />
               <span className="relative font-display text-[7rem] leading-none text-[color:var(--gold)]/80">"</span>
               <blockquote className="relative -mt-10 font-display italic text-2xl md:text-4xl leading-[1.25] text-[color:var(--champagne)] text-balance max-w-3xl">
-                They didn't design a house. They listened to my family for six months — then gave us back our evenings.
+                They didn't design a house. They listened to my family for six months - then gave us back our evenings.
               </blockquote>
               <figcaption className="relative mt-8 flex items-center gap-3 text-xs uppercase tracking-[0.3em] text-[color:var(--gold)]">
                 <span className="h-px w-10 bg-[color:var(--gold)]/60" />
@@ -256,7 +256,7 @@ function Home() {
               <em className="not-italic text-[color:var(--gold)]"> imagining</em>.
             </h2>
             <p className="mt-8 max-w-xl text-ivory/75 text-lg leading-relaxed font-light">
-              We take on a small number of homes each year. The conversations begin over chai —
+              We take on a small number of homes each year. The conversations begin over chai -
               there is no obligation, only curiosity.
             </p>
             <div className="mt-10 flex flex-wrap items-center gap-5">

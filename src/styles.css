@@ -45,7 +45,7 @@
 :root {
   --radius: 0.25rem;
 
-  /* Brand palette — Regal Contemporary Luxury */
+  /* Brand palette - Regal Contemporary Luxury */
   --royal: oklch(0.32 0.045 260);            /* charcoal indigo */
   --midnight: oklch(0.17 0.028 255);         /* #0c141e midnight */
   --gold: oklch(0.815 0.117 85);             /* #e9c176 antique gold */

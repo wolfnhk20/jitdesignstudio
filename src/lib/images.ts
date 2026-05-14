@@ -1,4 +1,4 @@
-// Curated photography from Unsplash — interior design / contemporary Indian luxury feel.
+// Curated photography from Unsplash - interior design / contemporary Indian luxury feel.
 // Using direct CDN URLs (not AI-generated). Dimensions tuned for cinematic crops.
 const u = (id: string, w = 1800) =>
   `https://images.unsplash.com/${id}?auto=format&fit=crop&w=${w}&q=80`;
@@ -67,5 +67,19 @@ export const GALLERY = {
     u("photo-1600488999180-f53e7a04a9d8"),
     u("photo-1600566753376-12c8ab7fb75b"),
     u("photo-1604014237800-1c9102c219da"),
+  ],
+  atelier: [
+    IMG.workspace,
+    u("photo-1524758631624-e2822e304c36"),
+    u("photo-1593476550610-87baa860004a"),
+    u("photo-1600494603989-9650cf6dad51"),
+    u("photo-1593696140826-c58b021acf8b"),
+  ],
+  veranda: [
+    IMG.living,
+    u("photo-1600210491892-03d54c0aaf87"),
+    u("photo-1616627781231-f70a52a7f70d"),
+    u("photo-1615800098779-1be32e60cca3"),
+    u("photo-1615529182904-14819c35db37"),
   ],
 };

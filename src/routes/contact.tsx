@@ -7,9 +7,9 @@ import { Reveal } from "@/components/site/Reveal";
 export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
-      { title: "Contact — JIT Design Studio, Pune" },
+      { title: "Contact - JIT Design Studio, Pune" },
       { name: "description", content: "Begin a conversation with JIT Design Studio. Visit us in Dhankawadi, Pune, or write to discuss your home." },
-      { property: "og:title", content: "Contact — JIT Design Studio" },
+      { property: "og:title", content: "Contact - JIT Design Studio" },
       { property: "og:description", content: "Begin a project with our Pune interior design studio." },
     ],
   }),
@@ -27,7 +27,7 @@ function Contact() {
     const name = String(data.get("name") || "");
     const message = String(data.get("message") || "");
     const subject = encodeURIComponent(`Project enquiry from ${name}`);
-    const body = encodeURIComponent(`${message}\n\n— ${name}`);
+    const body = encodeURIComponent(`${message}\n\n- ${name}`);
     window.location.href = `mailto:contact@jitdesignstudios.com?subject=${subject}&body=${body}`;
     setSent(true);
   };
@@ -59,36 +59,80 @@ function Contact() {
           {/* Form */}
           <div className="lg:col-span-7">
             <Reveal>
-              <h2 className="font-display text-3xl md:text-4xl text-[color:var(--midnight)]">Begin a conversation</h2>
-              <div className="gold-rule mt-5 w-12" />
-              <p className="mt-6 text-charcoal/75 font-light leading-relaxed max-w-md">
-                A few details help us prepare for our first chat — there's no obligation, only curiosity.
-              </p>
+              <div className="relative bg-white shadow-[0_30px_80px_-40px_rgba(8,12,30,0.35)] ring-1 ring-[color:var(--charcoal)]/10">
+                <span className="pointer-events-none absolute -top-px -left-px h-8 w-8 border-t-2 border-l-2 border-[color:var(--gold)]" />
+                <span className="pointer-events-none absolute -top-px -right-px h-8 w-8 border-t-2 border-r-2 border-[color:var(--gold)]" />
+                <span className="pointer-events-none absolute -bottom-px -left-px h-8 w-8 border-b-2 border-l-2 border-[color:var(--gold)]" />
+                <span className="pointer-events-none absolute -bottom-px -right-px h-8 w-8 border-b-2 border-r-2 border-[color:var(--gold)]" />
 
-              <form onSubmit={onSubmit} className="mt-10 grid gap-6">
-                <Field name="name" label="Your Name" required />
-                <div className="grid sm:grid-cols-2 gap-6">
-                  <Field name="email" label="Email" type="email" required />
-                  <Field name="phone" label="Phone" type="tel" />
+                <div className="p-8 md:p-12">
+                  <p className="eyebrow text-[color:var(--gold-deep)]">Enquiry</p>
+                  <h2 className="mt-3 font-display text-3xl md:text-4xl text-[color:var(--midnight)]">Begin a conversation</h2>
+                  <div className="gold-rule mt-5 w-12" />
+                  <p className="mt-6 text-charcoal/75 font-light leading-relaxed max-w-md">
+                    A few details help us prepare for our first chat. No obligation, only curiosity.
+                  </p>
+
+                  <form onSubmit={onSubmit} className="mt-10 grid gap-6">
+                    <div className="grid sm:grid-cols-2 gap-6">
+                      <Field name="name" label="Your Name" required />
+                      <Field name="email" label="Email" type="email" required />
+                    </div>
+                    <div className="grid sm:grid-cols-2 gap-6">
+                      <Field name="phone" label="Phone" type="tel" />
+                      <Field name="location" label="Project Location" />
+                    </div>
+
+                    <div>
+                      <p className="eyebrow text-charcoal/55 mb-3">Project Type</p>
+                      <div className="flex flex-wrap gap-2">
+                        {["Full Home", "Single Room", "Kitchen", "Bath", "Workspace", "Consultation"].map((t) => (
+                          <label key={t} className="cursor-pointer">
+                            <input type="radio" name="projectType" value={t} className="peer sr-only" defaultChecked={t === "Full Home"} />
+                            <span className="inline-block px-4 py-2 text-xs uppercase tracking-[0.2em] border border-[color:var(--charcoal)]/20 text-charcoal/70 hover:border-[color:var(--gold)] hover:text-[color:var(--midnight)] peer-checked:bg-[color:var(--midnight)] peer-checked:text-ivory peer-checked:border-[color:var(--midnight)] transition-all">
+                              {t}
+                            </span>
+                          </label>
+                        ))}
+                      </div>
+                    </div>
+
+                    <div>
+                      <p className="eyebrow text-charcoal/55 mb-3">Indicative Budget</p>
+                      <div className="flex flex-wrap gap-2">
+                        {["Under 15L", "15 to 30L", "30 to 60L", "60L to 1Cr", "1Cr +"].map((b) => (
+                          <label key={b} className="cursor-pointer">
+                            <input type="radio" name="budget" value={b} className="peer sr-only" />
+                            <span className="inline-block px-4 py-2 text-xs uppercase tracking-[0.2em] border border-[color:var(--charcoal)]/20 text-charcoal/70 hover:border-[color:var(--gold)] hover:text-[color:var(--midnight)] peer-checked:bg-[color:var(--gold)] peer-checked:text-[color:var(--midnight)] peer-checked:border-[color:var(--gold)] transition-all">
+                              {b}
+                            </span>
+                          </label>
+                        ))}
+                      </div>
+                    </div>
+
+                    <Field name="message" label="Tell us about your home" textarea />
+
+                    <div className="flex flex-wrap items-center justify-between gap-4 pt-2">
+                      <p className="text-xs text-charcoal/55">
+                        Or write to{" "}
+                        <a className="link-underline text-[color:var(--royal)]" href="mailto:contact@jitdesignstudios.com">
+                          contact@jitdesignstudios.com
+                        </a>
+                      </p>
+                      <motion.button
+                        whileHover={{ y: -2 }}
+                        whileTap={{ y: 0 }}
+                        type="submit"
+                        className="group inline-flex items-center justify-center gap-3 bg-[color:var(--midnight)] px-8 py-4 text-xs uppercase tracking-[0.28em] text-ivory hover:bg-[color:var(--royal)] transition-colors"
+                      >
+                        {sent ? "Opening your mail…" : "Send Enquiry"}
+                        <Send size={14} className="transition-transform group-hover:translate-x-1" />
+                      </motion.button>
+                    </div>
+                  </form>
                 </div>
-                <Field name="location" label="Project Location (e.g. Baner, Pune)" />
-                <Field name="message" label="Tell us about your home" textarea />
-
-                <motion.button
-                  whileHover={{ y: -2 }}
-                  whileTap={{ y: 0 }}
-                  type="submit"
-                  className="mt-2 inline-flex items-center justify-center gap-3 self-start bg-[color:var(--royal)] px-8 py-4 text-xs uppercase tracking-[0.28em] text-ivory hover:bg-[color:var(--midnight)] transition-colors"
-                >
-                  {sent ? "Opening your mail…" : "Send Enquiry"} <Send size={14} />
-                </motion.button>
-                <p className="text-xs text-charcoal/55">
-                  Or write directly to{" "}
-                  <a className="link-underline text-[color:var(--royal)]" href="mailto:contact@jitdesignstudios.com">
-                    contact@jitdesignstudios.com
-                  </a>
-                </p>
-              </form>
+              </div>
             </Reveal>
           </div>
 
@@ -127,7 +171,7 @@ function Contact() {
                 <div className="gold-rule mt-10 opacity-40" />
                 <p className="mt-8 eyebrow text-[color:var(--gold)]/85">Studio Hours</p>
                 <p className="mt-3 text-ivory/80 text-sm leading-relaxed font-light">
-                  Mon — Sat · 10:30 am – 7:30 pm<br />
+                  Mon - Sat · 10:30 am – 7:30 pm<br />
                   Sun · By appointment
                 </p>
               </div>
