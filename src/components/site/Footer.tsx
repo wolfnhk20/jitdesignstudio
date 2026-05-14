@@ -24,7 +24,7 @@ export function Footer() {
               </span>
             </Link>
             <p className="mt-5 text-sm leading-relaxed text-ivory/65 font-light max-w-xs">
-              A Pune-based interior design studio crafting calm, considered homes — where heritage,
+              A Pune-based interior design studio crafting calm, considered homes - where heritage,
               material and everyday living meet with quiet precision.
             </p>
             <div className="mt-5 flex items-center gap-4 text-ivory/70">

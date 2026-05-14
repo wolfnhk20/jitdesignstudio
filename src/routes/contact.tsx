@@ -7,9 +7,9 @@ import { Reveal } from "@/components/site/Reveal";
 export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
-      { title: "Contact — JIT Design Studio, Pune" },
+      { title: "Contact - JIT Design Studio, Pune" },
       { name: "description", content: "Begin a conversation with JIT Design Studio. Visit us in Dhankawadi, Pune, or write to discuss your home." },
-      { property: "og:title", content: "Contact — JIT Design Studio" },
+      { property: "og:title", content: "Contact - JIT Design Studio" },
       { property: "og:description", content: "Begin a project with our Pune interior design studio." },
     ],
   }),
@@ -27,7 +27,7 @@ function Contact() {
     const name = String(data.get("name") || "");
     const message = String(data.get("message") || "");
     const subject = encodeURIComponent(`Project enquiry from ${name}`);
-    const body = encodeURIComponent(`${message}\n\n— ${name}`);
+    const body = encodeURIComponent(`${message}\n\n- ${name}`);
     window.location.href = `mailto:contact@jitdesignstudios.com?subject=${subject}&body=${body}`;
     setSent(true);
   };
@@ -62,7 +62,7 @@ function Contact() {
               <h2 className="font-display text-3xl md:text-4xl text-[color:var(--midnight)]">Begin a conversation</h2>
               <div className="gold-rule mt-5 w-12" />
               <p className="mt-6 text-charcoal/75 font-light leading-relaxed max-w-md">
-                A few details help us prepare for our first chat — there's no obligation, only curiosity.
+                A few details help us prepare for our first chat - there's no obligation, only curiosity.
               </p>
 
               <form onSubmit={onSubmit} className="mt-10 grid gap-6">
@@ -127,7 +127,7 @@ function Contact() {
                 <div className="gold-rule mt-10 opacity-40" />
                 <p className="mt-8 eyebrow text-[color:var(--gold)]/85">Studio Hours</p>
                 <p className="mt-3 text-ivory/80 text-sm leading-relaxed font-light">
-                  Mon — Sat · 10:30 am – 7:30 pm<br />
+                  Mon - Sat · 10:30 am – 7:30 pm<br />
                   Sun · By appointment
                 </p>
               </div>

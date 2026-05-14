@@ -86,7 +86,7 @@ export function ProjectLightbox({
               <motion.img
                 key={project.images[i]}
                 src={project.images[i]}
-                alt={`${project.title} — ${i + 1}`}
+                alt={`${project.title} - ${i + 1}`}
                 initial={{ opacity: 0, scale: 1.04, filter: "blur(10px)" }}
                 animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
                 exit={{ opacity: 0, scale: 0.99, filter: "blur(6px)" }}

@@ -1,4 +1,4 @@
-// Curated photography from Unsplash — interior design / contemporary Indian luxury feel.
+// Curated photography from Unsplash - interior design / contemporary Indian luxury feel.
 // Using direct CDN URLs (not AI-generated). Dimensions tuned for cinematic crops.
 const u = (id: string, w = 1800) =>
   `https://images.unsplash.com/${id}?auto=format&fit=crop&w=${w}&q=80`;
