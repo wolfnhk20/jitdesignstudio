@@ -37,7 +37,7 @@ export function Navbar() {
     >
       <div className="mx-auto flex max-w-[1400px] items-center justify-between px-6 py-4 md:px-10 md:py-5">
         <Link to="/" className="group flex items-center gap-3">
-          <span className="grid h-12 w-12 place-items-center transition-transform duration-500 group-hover:rotate-[-6deg] group-hover:scale-105">
+          <span className="grid h-12 w-12 place-items-center">
             <OwlMark size={44} />
           </span>
           <span className="flex flex-col leading-none">
