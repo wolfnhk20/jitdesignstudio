@@ -41,8 +41,12 @@ export function Navbar() {
             <OwlMark size={44} />
           </span>
           <span className="flex flex-col leading-none">
-            <span className="font-display text-base sm:text-lg tracking-wide text-ivory">JIT Design Studio</span>
-            <span className="eyebrow !text-[0.5rem] sm:!text-[0.55rem] !tracking-[0.35em] sm:!tracking-[0.4em] text-[color:var(--gold)]/80">
+            <span className="font-display text-lg sm:text-xl tracking-[0.18em] uppercase text-ivory">
+              <span className="text-[color:var(--gold)]">JIT</span>
+              <span className="mx-1.5 text-[color:var(--gold)]/40">·</span>
+              <span className="font-light italic tracking-wide normal-case text-ivory/90">Design Studio</span>
+            </span>
+            <span className="eyebrow mt-1.5 !text-[0.5rem] sm:!text-[0.55rem] !tracking-[0.4em] text-[color:var(--gold)]/70">
               Pune · Est. Interiors
             </span>
           </span>
